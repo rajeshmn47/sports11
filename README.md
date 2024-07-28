@@ -1,8 +1,10 @@
-![WhatsApp Image 2024-07-28 at 12 35 26 PM](https://github.com/user-attachments/assets/14799c07-bab4-422a-9485-4cec69a88848)![WhatsApp Image 2024-07-28 at 12 40 45 PM](https://github.com/user-attachments/assets/8123b6c3-39c6-454d-bf92-e91a9c26f43f)
+![WhatsApp Image 2024-07-28 at 12 40 45 PM](https://github.com/user-attachments/assets/e25dcd6b-ae2c-4bcc-b576-b33717b9066f)
+![WhatsApp Image 2024-07-28 at 12 40 45 PM (1)](https://github.com/user-attachments/assets/a860d589-31d5-4451-99d6-a90f68f701b6)
+![WhatsApp Image 2024-07-28 at 12 40 46 PM](https://github.com/user-attachments/assets/22cee967-2a62-49e3-afdf-b91f7824ed6e)
+![WhatsApp Image 2024-07-28 at 12 40 46 PM (1)](https://github.com/user-attachments/assets/57f5de96-db62-4295-b7c5-b581ba22508d)
+![WhatsApp Image 2024-07-28 at 12 40 47 PM](https://github.com/user-attachments/assets/153a9f20-af5f-4871-8b0c-3c30cf5b8682)
+![WhatsApp Image 2024-07-28 at 12 40 47 PM (1)](https://github.com/user-attachments/assets/cfd9e543-21a6-4be4-bfe5-022a502209de)
 
-![WhatsApp Image 2024-07-28 at 12 35 17 PM (2)](https://github.com/user-attachments/assets/f4995b69-d199-4b75-a1d9-de03fd2760a6)
-![WhatsApp Image 2024-07-28 at 12 35 17 PM (1)](https://github.com/user-attachments/assets/a4161643-6393-4cdd-a9e7-5647c9c3f3f9)
-![WhatsApp Image 2024-07-28 at 12 35 17 PM](https://github.com/user-attachments/assets/2030a828-ce9a-41b0-8408-b9fc028e3ed1)
 # Welcome to your Expo app 👋
 
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
