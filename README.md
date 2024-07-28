@@ -24,9 +24,9 @@ This project is a clone of DREAM 11 It has various features like
 <img src="https://github.com/user-attachments/assets/a860d589-31d5-4451-99d6-a90f68f701b6" width="328"   height="600"  style="margin-right: 30px"/>
 </p>
 <p>
-<img src="https://github.com/user-attachments/assets/e25dcd6b-ae2c-4bcc-b576-b33717b9066f" width="328"  height="600"  style="margin-right: 90px"/>
+<img src="https://github.com/user-attachments/assets/22cee967-2a62-49e3-afdf-b91f7824ed6e" width="328"  height="600"  style="margin-right: 90px"/>
  <span><img src="./aligner.png" height=50 width=150 /></span> 
-<img src="https://github.com/user-attachments/assets/a860d589-31d5-4451-99d6-a90f68f701b6" width="328"   height="600"  style="margin-right: 30px"/>
+<img src="https://github.com/user-attachments/assets/57f5de96-db62-4295-b7c5-b581ba22508d" width="328"   height="600"  style="margin-right: 30px"/>
 </p>
 <p>
 <img src="https://github.com/user-attachments/assets/153a9f20-af5f-4871-8b0c-3c30cf5b8682" width="328"  height="600"  style="margin-right: 90px"/>
