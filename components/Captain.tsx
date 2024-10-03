@@ -7,12 +7,35 @@ import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from './routing/Routes';
 import { useDispatch, useSelector } from "react-redux";
 import Icon from 'react-native-vector-icons/AntDesign';
+import { AntDesign } from '@expo/vector-icons';
 import IonicIcon from 'react-native-vector-icons/Ionicons';
 import { useWindowDimensions } from 'react-native';
 import { getImgurl } from '../utils/images';
 import { URL } from '../constants/userConstants';
 import { API } from '../actions/userActions';
 import { ALERT_TYPE, Toast } from 'react-native-alert-notification';
+import {
+    Poppins_100Thin,
+    Poppins_100Thin_Italic,
+    Poppins_200ExtraLight,
+    Poppins_200ExtraLight_Italic,
+    Poppins_300Light,
+    Poppins_300Light_Italic,
+    Poppins_400Regular,
+    Poppins_400Regular_Italic,
+    Poppins_500Medium,
+    Poppins_500Medium_Italic,
+    Poppins_600SemiBold,
+    Poppins_600SemiBold_Italic,
+    Poppins_700Bold,
+    Poppins_700Bold_Italic,
+    Poppins_800ExtraBold,
+    Poppins_800ExtraBold_Italic,
+    Poppins_900Black,
+    Poppins_900Black_Italic,
+    useFonts,
+} from '@expo-google-fonts/poppins';
+import { LinearGradient } from 'expo-linear-gradient';
 
 
 export interface Contest {
@@ -29,6 +52,9 @@ export type Props = NativeStackScreenProps<RootStackParamList, "Captain">;
 export default function SelectCaptain({ navigation, route }: Props) {
     const dispatch = useDispatch();
     const { match_details, matchlive } = useSelector((state: any) => state.match);
+    let [fontsLoaded] = useFonts({
+        Poppins_600SemiBold, Poppins_500Medium
+    });
     const [text, setText] = useState('');
     const [upcoming, setUpcoming] = useState([]);
     const [date, setDate] = useState<Date>(new Date());
@@ -175,20 +201,20 @@ export default function SelectCaptain({ navigation, route }: Props) {
     const Item = ({ data, date }: { data: Contest, date: any }) => (
         <View>
             <View style={styles.playerContainer}>
-                <View style={{ height: "100%", alignItems: "center", justifyContent: "center" }}>
+                <View style={{ alignItems: "center", justifyContent: "center", overflow: 'hidden', height: 50, width: 50, borderRadius: 50 }}>
                     <Image source={{ uri: getImgurl(data.image, data.playerName) }} style={{ height: 50, width: 50, borderRadius: 5 }} />
                 </View>
                 <View style={styles.team}>
-                    <Text>{data.playerName}</Text>
+                    <Text style={{ color: "#FFF", textTransform: "capitalize", fontFamily: "Poppins_500Medium" }}>{data.playerName}</Text>
                 </View>
                 <TouchableHighlight onPress={() => data.isCaptain ? nHandleCaptain(data._id) : handleCaptain(data._id)}>
                     <View style={data.isCaptain ? styles.captain : styles.no}>
-                        <Text style={data.isCaptain ? styles.bright : styles.dark}>c</Text>
+                        <Text style={data.isCaptain ? styles.dark : styles.bright}>c</Text>
                     </View>
                 </TouchableHighlight>
                 <TouchableHighlight onPress={() => data.isViceCaptain ? nHandleVCaptain(data._id) : handleVCaptain(data._id)}>
                     <View style={data.isViceCaptain ? styles.vCaptain : styles.no}>
-                        <Text style={data.isViceCaptain ? styles.bright : styles.dark}>vc</Text>
+                        <Text style={data.isViceCaptain ? styles.dark : styles.bright}>vc</Text>
                     </View>
                 </TouchableHighlight>
             </View>
@@ -198,6 +224,47 @@ export default function SelectCaptain({ navigation, route }: Props) {
     return (
         <View style={styles.container}>
             <View style={styles.players}>
+            </View>
+            <StatusBar backgroundColor={"#212121"} style='light' />
+            <LinearGradient start={{ x: 0, y: 0.5 }} end={{ x: 1, y: 0.5 }}
+                colors={["rgba(29, 97, 129, 1)", "rgba(22, 33, 35, 1)", "rgba(44, 27, 92, 1)"]}
+            >
+                <View style={{ height: 190, alignItems: 'center', paddingVertical: 8 }}>
+                    <View style={{ alignItems: "center" }}>
+                        <View style={styles.backContainer}>
+                            <TouchableHighlight onPress={() => navigation.goBack()}>
+                                <View style={styles.backIcon}>
+                                    <AntDesign name="arrowleft" size={24} color="white" />
+                                </View>
+                            </TouchableHighlight>
+                            <Text style={styles.code}>22 h 30 m left</Text>
+                            <AntDesign name="questioncircleo" size={24} color="#FFF" />
+                        </View>
+                    </View>
+                    <View style={styles.codes}>
+                        <View style={styles.codeContainer}>
+                            <View style={styles.blueBackground}>
+                                <Text style={styles.code}>{match_details?.teamAwayName}</Text>
+                                <Image source={{ uri: match_details.teamAwayFlagUrl }} style={{ width: 30, height: 30 }} />
+                            </View>
+                            <Text style={styles.code}>{match_details?.teamAwayCode}</Text>
+                        </View>
+                        <View style={{ width: 60 }}>
+                            <Text style={{ fontFamily: "Poppins_600SemiBold", color: "#FFF" }}>5 : 6</Text>
+                        </View>
+                        <View style={styles.codeContainer}>
+                            <Text style={styles.code}>{match_details?.teamHomeCode}</Text>
+                            <View style={styles.whiteBackground}>
+                                <Text style={styles.code}>{match_details?.teamHomeName}</Text>
+                                <Image source={{ uri: match_details.teamHomeFlagUrl }} style={{ width: 30, height: 30 }} />
+                            </View>
+                        </View>
+                    </View>
+                </View>
+            </LinearGradient>
+            <View style={styles.header}>
+                <Text style={{ fontFamily: "Poppins_600SemiBold", fontSize: 16, color: "#FFF", textAlign: "center" }}>Choose Captain & Vice Captain</Text>
+                <Text style={{ color: "#535C63", textAlign: "center", fontSize: 9, fontFamily: "Poppins_600SemiBold" }}>C will get 2x points & VC will get 1.5x points</Text>
             </View>
             <View>
                 <FlatList
@@ -257,9 +324,28 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         padding: 5
     },
+    backText: {
+        color: 'white',
+        fontFamily: "Poppins_600SemiBold"
+    },
+    backContainer: {
+        backgroundColor: 'transparent',
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: "center",
+        width: 380,
+        paddingHorizontal: 4,
+        paddingVertical: 15
+    },
+    backIcon: {
+        backgroundColor: 'transparent',
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: "center"
+    },
     team: {
         flex: 1,
-        backgroundColor: 'white',
+        backgroundColor: 'rgba(13, 14, 15, 1)',
         alignItems: 'center',
         justifyContent: 'space-between',
         color: 'white',
@@ -283,7 +369,7 @@ const styles = StyleSheet.create({
         resizeMode: 'stretch',
     },
     playerContainer: {
-        backgroundColor: 'white',
+        backgroundColor: 'rgba(13, 14, 15, 1)',
         alignItems: 'center',
         justifyContent: 'space-between',
         color: 'white',
@@ -395,11 +481,11 @@ const styles = StyleSheet.create({
     },
     dark: {
         color: '#000000',
-        textAlign: "center"
+        textAlign: "center",
     },
     captain: {
         borderRadius: 12.5,
-        backgroundColor: '#000000',
+        backgroundColor: '#CECECE',
         color: '#FFFFFF',
         borderColor: '#CCCCCC',
         height: 25,
@@ -408,10 +494,45 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center'
     },
+    whiteBackground: {
+        width: 70,
+        height: 105,
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "flex-end",
+        borderRadius: 3,
+        overflow: 'hidden'
+    },
+    code: {
+        color: '#FFF',
+        textTransform: 'uppercase',
+        fontFamily: 'Poppins_600SemiBold'
+    },
+    matchInfo: {
+        height: 80,
+        backgroundColor: "transparent",
+        justifyContent: "space-between",
+        alignItems: "center",
+        flexDirection: "row",
+        paddingHorizontal: 5,
+        paddingVertical: 10,
 
+    },
+    info: {
+        justifyContent: "center",
+        alignItems: "flex-start",
+        marginRight: 2
+    },
+    codeContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        width: 100,
+        overflow: 'hidden'
+    },
     vCaptain: {
         borderRadius: 12.5,
-        backgroundColor: '#000000',
+        backgroundColor: '#CECECE',
         color: '#FFFFFF',
         borderColor: '#CCCCCC',
         height: 25,
@@ -419,6 +540,42 @@ const styles = StyleSheet.create({
         marginLeft: 5,
         alignItems: 'center',
         justifyContent: 'center'
+    },
+    nBox: {
+        width: 12,
+        height: 12,
+        backgroundColor: "rgba(217, 217, 217, 0.12)",
+        borderRadius: 12,
+        alignItems: 'center',
+        justifyContent: 'space-evenly',
+        flexDirection: 'row'
+    },
+    codes: {
+        flexDirection: 'row',
+        width: 350,
+        overflow: 'hidden',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        marginHorizontal: 'auto',
+        marginTop: 15
+    },
+    header: {
+        backgroundColor: "#0D0E0F"
+    },
+    boxes: {
+        alignItems: 'center',
+        justifyContent: 'space-evenly',
+        width: 250,
+        flexDirection: 'row',
+        marginVertical: 10
+    },
+    blueBackground: {
+        width: 80,
+        height: 105,
+        justifyContent: "center",
+        alignItems: "flex-start",
+        borderRadius: 3,
+        overflow: "hidden"
     },
     no: {
         borderRadius: 12.5,
@@ -428,6 +585,7 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        marginRight: 5
+        marginRight: 5,
+        backgroundColor: "#252626"
     }
 });
