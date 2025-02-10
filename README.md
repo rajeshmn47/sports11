@@ -1,3 +1,45 @@
+Sports11 - Fantasy Sports App
+
+Sports11 is a fantasy sports application where users can create teams, participate in contests, and win rewards.
+
+📥 Download APK
+
+Click the link below to download the latest version of the Sports11 app:
+
+Download Sports11 APK
+
+🚀 Features
+
+Create and manage fantasy teams
+
+Join and compete in various sports contests
+
+User-friendly interface
+
+Secure and fast transactions
+
+📦 Installation
+
+Download the APK from the link above.
+
+Allow installation from unknown sources (Go to Settings > Security > Enable Unknown Sources).
+
+Open the APK file and install the app.
+
+Launch the app and start playing!
+
+🛠 Tech Stack
+
+Frontend: React Native
+
+Backend: Node.js 
+
+Database: MongoDB / Firebase
+
+📩 Support
+
+If you face any issues or have suggestions, feel free to open an issue in this repository.
+
 This project is a clone of DREAM 11 It has various features like
 
 <p>1)email otp authentication</p>
